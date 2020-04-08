@@ -31,8 +31,14 @@ void ComplexNumber::setImagination(double imaginationValue) {
 
 string ComplexNumber::toString() {
     ostringstream stringStream;
-    string sign = this->getReal() < 0 ? "-" : "+";
-    stringStream << this->getReal() << " " << sign << " " << this->getImagination() << "i";
+    
+    stringStream << this->getReal();
+    
+    if (this->getImagination() != 0) {
+        string sign = this->getImagination() < 0 ? "-" : "+";
+        stringStream << " " << sign << " " << abs(this->getImagination()) << "i";
+    }
+    
     return stringStream.str();
 }
 
@@ -50,43 +56,43 @@ ostream &operator<<(ostream &output, ComplexNumber &b) {
 }
 
 ComplexNumber operator+(ComplexNumber a, ComplexNumber b) {
-    ComplexNumber result(a.getReal() + b.getReal(), a.getImagination() + b.getImagination());
-    return result;
+    return ComplexNumber(a.getReal() + b.getReal(), a.getImagination() + b.getImagination());
 }
 
 ComplexNumber operator+(ComplexNumber a, double b) {
-    ComplexNumber result(a.getReal() + b, a.getImagination());
-    return result;
+    return ComplexNumber(a.getReal() + b, a.getImagination());
 }
 
 ComplexNumber operator+(double a, ComplexNumber b) {
-    ComplexNumber result(a + b.getReal(), b.getImagination());
-    return result;
+    return ComplexNumber(a + b.getReal(), b.getImagination());
 }
 
 ComplexNumber operator-(ComplexNumber a, ComplexNumber b) {
-    ComplexNumber result(a.getReal() - b.getReal(), a.getImagination() - b.getImagination());
-    return result;
+    return ComplexNumber(a.getReal() - b.getReal(), a.getImagination() - b.getImagination());
 }
 
 ComplexNumber operator-(ComplexNumber a, double b) {
-    ComplexNumber result(a.getReal() - b, a.getImagination());
-    return result;
+    return ComplexNumber(a.getReal() - b, a.getImagination());
 }
 
 ComplexNumber operator-(double a, ComplexNumber b) {
-    ComplexNumber result(a - b.getReal(), b.getImagination());
-    return result;
+    return ComplexNumber(a - b.getReal(), b.getImagination());;
 }
 
 ComplexNumber operator*(ComplexNumber a, ComplexNumber b) {
-    return ComplexNumber();
+    double realValue = a.getReal() * b.getReal() - a.getImagination() * b.getImagination();
+    double imaginationValue = a.getReal() * b.getImagination() - a.getImagination() * b.getReal();
+    return ComplexNumber(realValue, imaginationValue);
 }
 
 ComplexNumber operator*(ComplexNumber a, double b) {
-    return ComplexNumber();
+    double realValue = a.getReal() * b;
+    double imaginationValue = a.getImagination() * b;
+    return ComplexNumber(realValue, imaginationValue);
 }
 
 ComplexNumber operator*(double a, ComplexNumber b) {
-    return ComplexNumber();
+    double realValue = a * b.getReal();
+    double imaginationValue = a * b.getImagination();
+    return ComplexNumber(realValue, imaginationValue);
 }
