@@ -7,9 +7,17 @@
 //
 
 #include <iostream>
+#include "ComplexNumber.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    ComplexNumber a(2, 3);
+    ComplexNumber b(2, 3);
+    
+    cin >> a;
+    cout << a;
+    
+    cout << endl;
     return 0;
 }
