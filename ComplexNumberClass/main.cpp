@@ -15,9 +15,14 @@ int main(int argc, const char * argv[]) {
     ComplexNumber firstNumber = ComplexNumber(2.0, 3.0);
     ComplexNumber secondNumber;
 
-    cout << "Enter complex number (real, imagination):" << endl;
+    cout << "Enter complex number (real, imagination): ";
     cin >> secondNumber;
-    cout << "firstNumber is: " << firstNumber.toString() << endl << "secondNumber is: " << secondNumber.toString() << endl << endl;
+    
+    
+    cout << "firstNumber is: " << firstNumber.toString() << endl;
+    cout << "secondNumber is: " << secondNumber.toString() << endl;
+    
+    cout << endl;
 
     ComplexNumber addition = (firstNumber + secondNumber);
     ComplexNumber difference = (firstNumber - secondNumber);
