@@ -1,7 +1,7 @@
 #  Complex Numbers C++ Implementation 
 
 
-### Implements operations 
+### Implemented operations 
 - addition
 - subtraction
 - multiplication
