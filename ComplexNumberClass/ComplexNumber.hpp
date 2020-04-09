@@ -49,6 +49,8 @@ public:
     
     friend ComplexNumber operator-(double a, ComplexNumber b);
     
+    friend ComplexNumber operator-(ComplexNumber a);
+    
     friend ComplexNumber operator*(ComplexNumber a, ComplexNumber b);
     
     friend ComplexNumber operator*(ComplexNumber a, double b);

@@ -60,7 +60,7 @@ ComplexNumber operator+(ComplexNumber a, ComplexNumber b) {
 }
 
 ComplexNumber operator+(ComplexNumber a, double b) {
-    return ComplexNumber(a.getReal() + b, a.getImagination());
+    return b + a;
 }
 
 ComplexNumber operator+(double a, ComplexNumber b) {
@@ -76,7 +76,11 @@ ComplexNumber operator-(ComplexNumber a, double b) {
 }
 
 ComplexNumber operator-(double a, ComplexNumber b) {
-    return ComplexNumber(a - b.getReal(), b.getImagination());;
+    return -b + a;
+}
+    
+ComplexNumber operator-(ComplexNumber a) {
+    return -1 * a;
 }
 
 ComplexNumber operator*(ComplexNumber a, ComplexNumber b) {
@@ -86,9 +90,7 @@ ComplexNumber operator*(ComplexNumber a, ComplexNumber b) {
 }
 
 ComplexNumber operator*(ComplexNumber a, double b) {
-    double realValue = a.getReal() * b;
-    double imaginationValue = a.getImagination() * b;
-    return ComplexNumber(realValue, imaginationValue);
+    return b * a;
 }
 
 ComplexNumber operator*(double a, ComplexNumber b) {
